@@ -5,15 +5,14 @@ static void chartime(char *);
 int main(void){
     pid_t pid;
     TELL_WAIT();
-    if(pid = fork() < 0){
+    if((pid = fork()) < 0){
         err_sys("fork error");
     }
     else if(pid == 0){
          WAIT_PARENT();
-         chartime("out put form child\n");
-         exit(0);
+         chartime("out put from child\n");
     }else{
-         chartime("out put form parent\n");
+         chartime("out put from parent\n");
          TELL_CHILD(pid);
     }
     exit(0);
@@ -27,3 +26,4 @@ static void chartime(char *str){
         putc(c, stdout);
     }
 }
+

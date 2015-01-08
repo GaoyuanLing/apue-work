@@ -38,5 +38,5 @@ int main(void){
 }
 
 static void sig_int(int signo){
-    pr_mask("sig inter\n");    
+    pr_mask("sig inter:");    
 }
